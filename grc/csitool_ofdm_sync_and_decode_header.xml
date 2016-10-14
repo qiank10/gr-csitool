@@ -1,0 +1,76 @@
+<?xml version="1.0"?>
+<block>
+  <name>ofdm_sync_and_decode_header</name>
+  <key>csitool_ofdm_sync_and_decode_header</key>
+  <category>csitool</category>
+  <import>import csitool</import>
+  <make>csitool.ofdm_sync_and_decode_header($threshold, $min_plateau, $timing_offset, $sync_length)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+<param>
+    <name>Threshold</name>
+    <key>threshold</key>
+    <value>0.8</value>
+    <type>real</type>
+  </param>
+
+  <param>
+    <name>Min Plateau</name>
+    <key>min_plateau</key>
+    <value>16</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Timing Offset</name>
+    <key>timing_offset</key>
+    <value>3</value>
+    <type>int</type>
+  </param>
+
+  <param>
+    <name>Sync Length</name>
+    <key>sync_length</key>
+    <value>320</value>
+    <type>int</type>
+  </param>
+
+  <check>$threshold > 0</check>
+  <check>$min_plateau > 0</check>
+
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <nports>1</nports>
+  </sink>
+
+  <sink>
+    <name>delay</name>
+    <type>complex</type>
+    <nports>1</nports>
+  </sink>
+  <sink>
+    <name>thres</name>
+    <type>float</type>
+    <nports>1</nports>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>out</name>
+    <type>complex</type>
+    <nports>1</nports>
+  </source>
+</block>
