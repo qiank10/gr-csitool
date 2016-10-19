@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<block>
+  <name>ofdm_parse_payload</name>
+  <key>wifirecv_ofdm_parse_payload</key>
+  <category>wifirecv</category>
+  <import>import wifirecv</import>
+  <make>wifirecv.ofdm_parse_payload($mac)</make>
+  <!-- Make one 'param' node for every Parameter you want settable from the GUI.
+       Sub-nodes:
+       * name
+       * key (makes the value accessible as $keyname, e.g. in the make node)
+       * type -->
+  <param>
+    <name>MAC Filter</name>
+    <key>mac</key>
+    <type>string</type>
+  </param>
+  <!-- Make one 'sink' node per input. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <sink>
+    <name>in</name>
+    <type>complex</type>
+    <vlen>48</vlen>
+    <nports>1</nports>
+  </sink>
+
+  <!-- Make one 'source' node per output. Sub-nodes:
+       * name (an identifier for the GUI)
+       * type
+       * vlen
+       * optional (set to 1 for optional inputs) -->
+  <source>
+    <name>csi</name>
+    <type>complex</type>
+    <vlen>64</vlen>
+    <nports>1</nports>
+  </source>
+
+  <source>
+    <name>ts</name>
+    <type>int</type>
+    <vlen>2</vlen>
+    <nports>1</nports>
+  </source>
+
+  <source>
+    <name>pdu</name>
+    <type>message</type>
+  </source>
+</block>
