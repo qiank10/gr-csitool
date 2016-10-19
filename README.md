@@ -1,9 +1,9 @@
 # gr-csitool
 gr-csitool is a customized gnuradio tool for sniffering 802.11 g packets and reporting CSI. It is compatible to gnuradio V3.7.
 
-To build gr-csitool, you have to install two modules, gr-csitool and gr-wifirecv, or you can reconstruct the code into one module.
+To build gr-csitool, you have to install two modules, gr-csitool and gr-wifirecv. 
 
-In root directory of each module, 
+In the root directory of each module, run, 
 
 ~~~
   mkdir build
