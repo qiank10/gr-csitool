@@ -202,7 +202,7 @@ namespace gr {
                 if(d_n_psdu >= 20){
                   int j = 0;
                   for(j = 0; j < 6; j++){
-                    if(d_mac[i] != d_data_bytes[12 + i]){
+                    if(d_mac[j] != d_data_bytes[12 + j]){
                       break;
                     }
                   }
